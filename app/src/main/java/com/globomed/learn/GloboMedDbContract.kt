@@ -13,7 +13,7 @@ object GloboMedDbContract {
 
         const val SQL_CREATE_ENTRIES : String =
             "CREATE TABLE $TABLE_NAME (" +
-                    _ID + "INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "$COLUMN_NAME TEXT NOT NULL, " +
                     "$COLUMN_DOB INTEGER NOT NULL, " +
                     "$COLUMN_DESIGNATION TEXT NOT NULL)"
