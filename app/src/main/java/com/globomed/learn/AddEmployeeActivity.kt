@@ -27,6 +27,35 @@ class AddEmployeeActivity : Activity() {
         etDOB.setOnClickListener {
             setUpCalender(date)
         }
+
+        bSave.setOnClickListener {
+            saveEmployee()
+        }
+
+        bCancel.setOnClickListener {
+            finish()
+        }
+    }
+
+    private fun saveEmployee() {
+
+        var isValid = true
+
+        etEmpName.error = if (etEmpName?.text.toString().isEmpty()) {
+            isValid = false
+            "Required Field"
+        } else null
+
+        etDesignation.error = if (etDesignation?.text.toString().isEmpty()) {
+            isValid = false
+            "Required Field"
+        } else null
+
+        if (isValid) {
+            val name: String = etEmpName?.text.toString()
+            val designation: String = etDesignation?.text.toString()
+            val dob: Long = myCalendar.timeInMillis
+        }
     }
 
     private fun setUpCalender(date: DatePickerDialog.OnDateSetListener) {
