@@ -9,20 +9,12 @@ class DatabaseHelper(
 ) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     override fun onCreate(db: SQLiteDatabase?) {
-        db?.execSQL(GloboMedDbContract.SQL_CREATE_ENTRIES)
+        db?.execSQL(GloboMedDbContract.EmployeeEntry.SQL_CREATE_ENTRIES)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        db?.execSQL(GloboMedDbContract.SQL_DROP_TABLE)
+        db?.execSQL(GloboMedDbContract.EmployeeEntry.SQL_DROP_TABLE)
         onCreate(db)
-    }
-
-    override fun onDowngrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        super.onDowngrade(db, oldVersion, newVersion)
-    }
-
-    override fun onOpen(db: SQLiteDatabase?) {
-        super.onOpen(db)
     }
 
     companion object {
